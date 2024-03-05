@@ -6,12 +6,11 @@ import { LucideIcon } from "lucide-react";
 
 const listMenuVariants = {
     hover: {
-        scale: 1.05,
-        rotateZ: 5,
-        transition: { duration: 0.2 },
+        scale: 1.03,
+        transition: { duration: 0.02 },
     },
     tap: {
-        scale: 1.01,
+        scale: .95,
     },
     hidden: { opacity: 0, x: "100vw" },
     visible: {
@@ -126,6 +125,9 @@ const ListMenu = forwardRef<
                                             `${style === "dark" ? "hover:bg-gray-700" : "hover:bg-gray-200"}`,
                                             classNames?.item
                                         )}
+                                        variants={listMenuVariants}
+                                        whileHover="hover"
+                                        whileTap="tap"
                                     >
                                         {item.icon && <item.icon size={24}
                                         className={cn(
