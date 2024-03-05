@@ -1,22 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 
-const { colors } = require("tailwindcss/defaultTheme");
-
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        // primary: {
-        //   DEFAULT: "#FF6363",
-        //   foreground: "#ffffff",
-        //   hover: "#FF7D7D",
-        // },
         primary: {
-          DEFAULT: "#4F46E5",
+          DEFAULT: "#FF6363",
           foreground: "#ffffff",
-          hover: "#6B66E5",
+          hover: "#FF7D7D",
         },
+        // primary: {
+        //   DEFAULT: "#4F46E5",
+        //   foreground: "#ffffff",
+        //   hover: "#6B66E5",
+        // },
         secondary: {
           DEFAULT: "#4B5563",
           foreground: "#ffffff",
