@@ -16,11 +16,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
+        variant: "light",
         color: "primary",
         size: "lg",
         rounded: "lg",
-        shadow: "none",
-        bordered: true,
+        shadow: "md",
+        bordered: false,
         animation: true,
         showPriceSection: false,
         from: "ჭავჭავაძის გამზირი 23, თბილისი, საქართველო",
@@ -46,6 +47,12 @@ export const Default: Story = {
         }
     },
     argTypes: {
+        variant: {
+            options: ["light", "dark"],
+            control: {
+                type: "select",
+            },
+        },
         color: {
             options: ["primary", "secondary", "default", "success", "danger", "warning", "light", "dark"],
             control: {

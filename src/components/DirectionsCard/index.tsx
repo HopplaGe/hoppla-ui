@@ -5,6 +5,10 @@ import {cva} from "class-variance-authority";
 
 const directionsCardStyle = cva(["font-semibold", "bg-cover", "border-0"], {
     variants: {
+        variant: {
+            dark: ["bg-dark", "text-light"],
+            light: ["bg-white", "text-gray-600"],
+        },
         color: {
             primary: ["text-primary", "border-primary", "bg-primary"],
             secondary: ["text-secondary", "border-secondary", "bg-secondary"],
@@ -61,6 +65,7 @@ type DirectionsCardProps = {
     toDistance: number;
     requested_seats: number;
     price: number;
+    variant: "dark" | "light";
     size: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
     color: "primary" | "secondary" | "default" | "success" | "danger" | "warning" | "light" | "dark";
     rounded: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
@@ -97,6 +102,7 @@ const DirectionsCard = forwardRef<
                                         toDistance,
                                         requested_seats,
                                         price,
+    variant,
                                         size,
                                         color,
                                         rounded,
@@ -134,8 +140,8 @@ const DirectionsCard = forwardRef<
             <div
                 id="card"
                 className={cn(
-                    directionsCardStyle({rounded, bordered, shadow }),
-                    "relative group bg-white overflow-hidden min-w-96",
+                    "relative overflow-hidden min-w-96",
+                    directionsCardStyle({ rounded, bordered, shadow, variant }),
                     className,
                     classNames?.card,
                 )}
@@ -147,6 +153,7 @@ const DirectionsCard = forwardRef<
                     className={
                         cn(
                             "group min-h-10 hover:bg-gray-100 transform transition-all duration-300 ease-in-out pt-2 cursor-pointer",
+                            variant === "dark" ? "hover:bg-gray-700" : "hover:bg-gray-50",
                             classNames?.from,
                         )
                     }
@@ -182,8 +189,9 @@ const DirectionsCard = forwardRef<
                                     <div
                                         className={
                                             cn(
-                                                directionsCardStyle({color, rounded}),
-                                                "bg-white box-border w-3 h-3 border-2",
+                                                directionsCardStyle({ color, rounded, variant }),
+                                                "box-border w-3 h-3 border-2",
+                                                variant === "dark" ? "bg-dark group-hover:bg-gray-700" : "bg-white group-hover:bg-gray-50",
                                             )
                                         }
                                         aria-hidden="true"
@@ -195,13 +203,18 @@ const DirectionsCard = forwardRef<
                             </div>
 
                             <div className="relative flex-1 py-2 pr-4 flex flex-col gap-2">
-                                <div className="flex flex-col gap-0">
-                  <span className="text-sm fira-go">
-                    {from.split(",").slice(0, -2)}
-                  </span>
-                                    <span className="text-xs fira-go">
-                    {from.split(",").slice(-2).join(",")}
-                  </span>
+                                <div className={
+                                    cn(
+                                        directionsCardStyle({ variant }),
+                                        "flex flex-col gap-0 bg-transparent",
+                                    )
+                                }>
+                                    <span className="text-sm fira-go">
+                                        {from.split(",").slice(0, -2)}
+                                    </span>
+                                    <span className="text-xs fira-go font-normal">
+                                        {from.split(",").slice(-2).join(",")}
+                                    </span>
                                 </div>
 
                                 <div className="flex gap-2 justify-start items-center">
@@ -248,7 +261,8 @@ const DirectionsCard = forwardRef<
                     onClick={() => onClick ? onClick(endLatLng) : null}
                     className={
                         cn(
-                            "group min-h-10 hover:bg-gray-100 hover:rounded-none transform transition-all duration-300 ease-in-out cursor-pointer",
+                            "group min-h-10  hover:rounded-none transform transition-all duration-300 ease-in-out cursor-pointer",
+                            variant === "dark" ? "hover:bg-gray-700" : "hover:bg-gray-50",
                             classNames?.to,
                         )
                     }
@@ -282,8 +296,9 @@ const DirectionsCard = forwardRef<
                                     <div
                                         className={
                                             cn(
-                                                directionsCardStyle({color, rounded}),
-                                                "bg-white box-border w-3 h-3 border-2",
+                                                directionsCardStyle({ color, rounded, variant }),
+                                                "box-border w-3 h-3 border-2",
+                                                variant === "dark" ? "bg-dark group-hover:bg-gray-700" : "bg-white group-hover:bg-gray-50",
                                             )
                                         }
                                         aria-hidden="true"
@@ -293,11 +308,16 @@ const DirectionsCard = forwardRef<
                             </div>
 
                             <div className="relative flex-1 py-2 pr-4 flex flex-col gap-2">
-                                <div className="flex flex-col gap-0">
+                                <div className={
+                                    cn(
+                                        directionsCardStyle({ variant }),
+                                        "flex flex-col gap-0 bg-transparent",
+                                    )
+                                }>
                                   <span className="text-sm fira-go">
                                     {to.split(",").slice(0, -2)}
                                   </span>
-                                  <span className="text-xs fira-go">
+                                    <span className="text-xs fira-go font-normal">
                                     {to.split(",").slice(-2).join(",")}
                                   </span>
                                 </div>
