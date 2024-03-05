@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Solid: Story = {
   args: {
-    label: "Button",
+    label: "ღილაკი",
     size: "sm",
     type: "solid",
     color: "primary",
@@ -32,7 +32,7 @@ export const Solid: Story = {
 
 export const Outline: Story = {
   args: {
-    label: "Button",
+    label: "ღილაკი",
     size: "sm",
     type: "outline",
     color: "primary",
@@ -48,7 +48,7 @@ export const Outline: Story = {
 
 export const Ghost: Story = {
   args: {
-    label: "Button",
+    label: "ღილაკი",
     size: "sm",
     type: "ghost",
     color: "primary",
@@ -58,7 +58,7 @@ export const Ghost: Story = {
 
 export const Link: Story = {
   args: {
-    label: "Button",
+    label: "ღილაკი",
     size: "sm",
     type: "link",
     color: "primary",

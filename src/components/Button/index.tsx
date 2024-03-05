@@ -36,6 +36,7 @@ const buttonStyle = cva(
     "gap-2",
     "justify-center",
     "items-center",
+      "fira-go"
   ],
   {
     variants: {
