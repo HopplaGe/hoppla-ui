@@ -17,12 +17,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Solid: Story = {
   args: {
-    color: "primary",
-    size: "md",
+    color: "light",
+    size: "xs",
     rounded: "md",
     animation: true,
-    label: "Solid",
+    label: "სახელი",
     type: "solid",
-    placeholder: "Solid Input",
+    placeholder: "შეიყვანეთ სრული სახელი",
   },
 } satisfies Story;

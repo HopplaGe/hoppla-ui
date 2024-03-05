@@ -38,6 +38,9 @@ const inputStyle = cva(
     "justify-center",
     "items-start",
     "group",
+      "fira-go",
+      "px-1",
+"py-2",
   ],
   {
     variants: {
@@ -68,7 +71,7 @@ const inputStyle = cva(
         "5xl": ["text-5xl"],
       },
       type: {
-        solid: ["text-white", "hover:bg-opacity-95", "bg-opacity-100"],
+        solid: ["text-white", "hover:bg-opacity-95", "bg-opacity-100", "placeholder-white"],
         outline: [
           "bg-transparent",
           "border-2",
@@ -86,7 +89,6 @@ const inputStyle = cva(
         lg: "rounded-lg",
         xl: "rounded-xl",
         "2xl": "rounded-2xl",
-        "3xl": "rounded-3xl",
         full: "rounded-full",
       },
     },
@@ -116,7 +118,7 @@ type InputProps = {
     | "default";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
   type?: "outline" | "solid" | "ghost";
-  rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
+  rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "full";
   animation?: true | false;
 } & typeof inputStyle;
 
@@ -134,10 +136,20 @@ const Input = forwardRef<
       })}
       {...props}
     >
-      <motion.label className="px-2 py-1 text-xs">{props.label}</motion.label>
+      <motion.label className={
+        cn(
+            "px-2 text-xs",
+            color === "light" && "text-gray-500",
+        )
+      }>{props.label}</motion.label>
       <motion.input
         {...props}
-        className="w-full bg-transparent focus:outline-none border-none p-2 pt-0"
+        className={
+            cn(
+                "w-full bg-transparent focus:outline-none border-none px-2 pb-1 pt-0 font-normal",
+                color === "light" && "text-gray-500",
+            )
+        }
         ref={ref}
         placeholder={props.placeholder}
       />
