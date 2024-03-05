@@ -13,4 +13,8 @@
         @apply font-FiraGO;
         font-feature-settings: "case" 1;
     }
+
+    .hoppla-animation {
+        @apply transform transition-all duration-300 ease-in-out;
+    }
 }
