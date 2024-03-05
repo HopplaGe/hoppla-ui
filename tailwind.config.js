@@ -57,7 +57,12 @@ export default {
         },
       },
       fontFamily: {
-        body: ["Nunito"],
+        FiraGO: [
+          '"FiraGO", "sans-serif"',
+          {
+            fontFeatureSettings: '"case", "1"',
+          },
+        ],
       },
       borderWidth: {
         3: "3px",
