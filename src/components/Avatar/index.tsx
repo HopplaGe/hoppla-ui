@@ -28,7 +28,7 @@ const avatarVariants = {
   },
 };
 
-const avatarStyle = cva(["font-semibold", "rounded-full", "flex", "bg-cover"], {
+const avatarStyle = cva(["font-semibold", "rounded-full", "flex", "bg-cover", "border-0"], {
   variants: {
     color: {
       primary: ["border-primary", "bg-primary"],
@@ -41,14 +41,14 @@ const avatarStyle = cva(["font-semibold", "rounded-full", "flex", "bg-cover"], {
       dark: ["border-dark", "bg-dark"],
     },
     size: {
-      xs: ["w-10", "h-10", "p-0.5"],
-      sm: ["w-12", "h-12", "p-1"],
-      md: ["w-16", "h-16", "p-1.5"],
-      lg: ["w-20", "h-20", "p-2"],
-      xl: ["w-24", "h-24", "p-2.5"],
-      "2xl": ["w-32", "h-32", "p-3"],
-      "3xl": ["w-40", "h-40", "p-4"],
-      "4xl": ["w-48", "h-48", "p-5"],
+      xs: ["w-10", "h-10"],
+      sm: ["w-12", "h-12"],
+      md: ["w-16", "h-16"],
+      lg: ["w-20", "h-20"],
+      xl: ["w-24", "h-24"],
+      "2xl": ["w-32", "h-32"],
+      "3xl": ["w-40", "h-40"],
+      "4xl": ["w-48", "h-48"],
     },
     rounded: {
       none: "rounded-none",
@@ -59,6 +59,10 @@ const avatarStyle = cva(["font-semibold", "rounded-full", "flex", "bg-cover"], {
       "2xl": "rounded-2xl",
       "3xl": "rounded-3xl",
       full: "rounded-full",
+    },
+    bordered: {
+      true: "border-3",
+      false: "border-0",
     },
   },
   // compoundVariants: [
@@ -72,11 +76,13 @@ const avatarStyle = cva(["font-semibold", "rounded-full", "flex", "bg-cover"], {
     color: "primary",
     size: "lg",
     rounded: "none",
+    bordered: false,
   },
 });
 
 type AvatarProps = {
   src: string;
+    alt: string;
   onClick?: () => void;
   className?: string;
   color?:
@@ -91,12 +97,13 @@ type AvatarProps = {
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
   animation?: true | false;
+  bordered?: true | false;
 } & typeof avatarStyle;
 
 const Avatar = forwardRef<
   HTMLImageElement,
   AvatarProps & RefAttributes<HTMLImageElement>
->(({ color, size, rounded, className, animation, ...props }, ref) => {
+>(({ color, size, rounded, bordered, className, animation, ...props }, ref) => {
   return (
     <motion.img
       variants={avatarVariants}
@@ -105,9 +112,10 @@ const Avatar = forwardRef<
         whileTap: "tap",
       })}
       {...props}
-      className={cn(avatarStyle({ color, size, rounded, className }))}
+      className={cn(avatarStyle({ color, size, rounded, bordered, className }))}
       ref={ref}
       src={props.src}
+        alt={props.alt}
     />
   );
 });

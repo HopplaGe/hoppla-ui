@@ -30,6 +30,20 @@ const meta = {
         ],
       },
     },
+    size: {
+      control: {
+        type: "select",
+        options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"],
+      },
+    },
+    rounded: {
+      control: {
+        type: "select",
+        options: ["none", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
+      },
+    },
+    animation: { control: "boolean" },
+    bordered: { control: "boolean" },
   },
 } satisfies Meta<typeof Avatar>;
 
@@ -39,10 +53,12 @@ type Story = StoryObj<typeof meta>;
 export const Solid: Story = {
   args: {
     src: "https://avatars.githubusercontent.com/u/39017636?v=4",
+    alt: "Profile Picture",
     size: "xs",
     color: "primary",
     animation: true,
     rounded: "none",
+    bordered: true,
   },
   argTypes: {},
 };
