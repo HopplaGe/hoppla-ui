@@ -28,7 +28,7 @@ const logoVariants = {
     },
 };
 
-const logoStyle = cva(["6"], {
+const logoStyle = cva([""], {
     variants: {
         color: {
             primary: ["fill-primary", "fill-primary-dark"],
