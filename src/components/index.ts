@@ -5,3 +5,4 @@ export {default as DirectionsCard} from "./DirectionsCard";
 export {default as ListMenu} from "./ListMenu";
 export {default as Logo} from "./Logo";
 export {default as OfferingCard} from "./OfferingCard";
+export {default as InfoSection} from "./InfoSection";
