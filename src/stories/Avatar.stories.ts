@@ -50,14 +50,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Solid: Story = {
+export const Default: Story = {
+  args: {
+    src: "https://avatars.githubusercontent.com/u/39017636?v=4",
+    alt: "Profile Picture",
+    size: "sm",
+    color: "secondary",
+    animation: true,
+    rounded: "xl",
+    bordered: false,
+  },
+  argTypes: {},
+};
+
+export const Bordered: Story = {
   args: {
     src: "https://avatars.githubusercontent.com/u/39017636?v=4",
     alt: "Profile Picture",
     size: "xs",
     color: "primary",
     animation: true,
-    rounded: "none",
+    rounded: "lg",
     bordered: true,
   },
   argTypes: {},

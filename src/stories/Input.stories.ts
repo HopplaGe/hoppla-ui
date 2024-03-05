@@ -26,3 +26,27 @@ export const Solid: Story = {
     placeholder: "შეიყვანეთ სრული სახელი",
   },
 } satisfies Story;
+
+export const Outline: Story = {
+  args: {
+    color: "light",
+    size: "xs",
+    rounded: "md",
+    animation: true,
+    label: "სახელი",
+    type: "outline",
+    placeholder: "შეიყვანეთ სრული სახელი",
+  },
+} satisfies Story;
+
+export const Ghost: Story = {
+  args: {
+    color: "light",
+    size: "xs",
+    rounded: "md",
+    animation: true,
+    label: "სახელი",
+    type: "ghost",
+    placeholder: "შეიყვანეთ სრული სახელი",
+  },
+} satisfies Story;

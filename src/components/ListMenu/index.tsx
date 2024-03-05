@@ -30,9 +30,9 @@ const listMenuVariants = {
 
 const listMenuStyle = cva(["text-gray-700"], {
     variants: {
-        style: {
-            dark: ["text-gray-200 bg-gray-800"],
-            light: ["text-gray-700 bg-gray-100"],
+        variant: {
+            dark: ["text-gray-200", "bg-gray-800"],
+            light: ["text-gray-700", "bg-gray-100"],
         },
         color: {
             primary: ["text-primary", "bg-primary", "border-primary"],
@@ -69,7 +69,7 @@ const listMenuStyle = cva(["text-gray-700"], {
 
 type listMenuProps = {
     color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "white" | "black";
-    style?: "dark" | "light";
+    variant?: "dark" | "light";
     rounded?: "sm" | "lg" | "xl" | "2xl" | "3xl" | "none";
     className?: string;
     classNames?: {
@@ -94,7 +94,7 @@ export const ListboxWrapper = ({ children }: { children: ReactNode }) => (
 const ListMenu = forwardRef<
     HTMLUListElement,
     listMenuProps & RefAttributes<HTMLUListElement>
->(({style,color, classNames, rounded, ...props }, ref) => {
+>(({variant,color, classNames, rounded, ...props }, ref) => {
 
     return (
         <ListboxWrapper>
@@ -104,7 +104,7 @@ const ListMenu = forwardRef<
                 {...props}
                 {...classNames}
                 className={cn(
-                    listMenuStyle({ rounded, style}),
+                    listMenuStyle({ rounded, variant}),
                     "flex flex-col gap-1 w-full h-min p-2 fira-go min-w-64 fira-go",
                     classNames?.base
                 )}
@@ -122,7 +122,7 @@ const ListMenu = forwardRef<
                                             "flex justify-start items-center gap-2 w-full h-12 fira-go px-2 py-2",
                                             "cursor-pointer transition-all",
                                             listMenuStyle({rounded}),
-                                            `${style === "dark" ? "hover:bg-gray-700" : "hover:bg-gray-200"}`,
+                                            `${variant === "dark" ? "hover:bg-gray-700" : "hover:bg-gray-200"}`,
                                             classNames?.item
                                         )}
                                         variants={listMenuVariants}
@@ -144,7 +144,7 @@ const ListMenu = forwardRef<
                                             {item.name as string}
                                             <p className={
                                                 cn(
-                                                    listMenuStyle({style}),
+                                                    listMenuStyle({variant}),
                                                     "text-xs bg-transparent",
                                                 )
 

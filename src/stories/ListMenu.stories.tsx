@@ -1,51 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Cog, CreditCard, Home, SignpostBig, Star, Ticket } from "lucide-react"
 import { ListMenu } from "../components";
-
-const data = [
-    {
-        name: "მთავარი",
-        description: "პირადი კაბინეტი",
-        href: "#",
-        icon: Home,
-        category: "ნავიგაცია"
-    },
-    {
-        name: "მგზავრობები",
-        description: "მგზავრობების მართვა",
-        href: "#",
-        icon: SignpostBig,
-        category: "ნავიგაცია"
-    },
-    {
-        name: "ბილეთები",
-        description: "ბილეთების მართვა",
-        href: "#2",
-        icon: Ticket,
-        category: "ნავიგაცია"
-    },
-    {
-        name: "შეფასებები",
-        description: "შეფასებების მართვა",
-        href: "#2",
-        icon: Star,
-        category: "ნავიგაცია"
-    },
-    {
-        name: "გადახდები",
-        description: "გადახდების მართვა",
-        href: "#2",
-        icon: CreditCard,
-        category: "მართვა"
-    },
-    {
-        name: "პარამეტრები",
-        description: "პარამეტრების მართვა",
-        href: "#2",
-        icon: Cog,
-        category: "მართვა"
-    }
-]
+import {data} from "@/config/listMenu.config.ts";
 
 
 const meta = {
@@ -82,10 +37,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const AllMenus: Story = {
-    render: (args) => (
-        <div className="flex flex-row space-x-4">
-            <ListMenu {...args} />
-            <ListMenu {...args} variant="dark" />
+    render: () => (
+        <div className="grid grid-cols-1 lg:grid-cols-3 space-x-4">
+            <ListMenu color="dark" data={data} rounded="xl" />
+            <ListMenu color="primary" rounded="xl"  data={data}/>
+            <ListMenu color="warning" rounded="xl" variant="light" data={data}/>
+            <ListMenu color="success" rounded="xl" variant="light" data={data}/>
+            <ListMenu color="info" rounded="xl" variant="light" data={data}/>
+            <ListMenu color="black" rounded="xl" variant="light" data={data}/>
+            <ListMenu color="white" data={data} rounded="xl" variant="dark" />
+            <ListMenu color="primary" rounded="xl" data={data} variant="dark"/>
+            <ListMenu color="warning" rounded="xl" variant="dark" data={data}/>
+            <ListMenu color="success" rounded="xl" variant="dark" data={data}/>
+            <ListMenu color="info" rounded="xl" variant="dark" data={data}/>
+            <ListMenu color="light" rounded="xl" variant="dark" data={data}/>
         </div>
     )
 } satisfies Story;

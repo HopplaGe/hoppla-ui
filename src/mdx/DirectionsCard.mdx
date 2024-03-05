@@ -1,0 +1,13 @@
+import { Meta, Story, Canvas } from '@storybook/blocks';
+import * as DirectionsCardStories from '../stories/DirectionsCard.stories';
+
+<Meta title="DirectionsCard" component={DirectionsCardStories} />
+
+# DirectionsCard
+
+This is a card that displays directions.
+
+<Canvas>
+  <Story of={DirectionsCardStories.Default} />
+  <Story of={DirectionsCardStories.WithPrice} />
+</Canvas>
