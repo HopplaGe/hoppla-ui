@@ -66,7 +66,7 @@ const statCardStyle = cva(
     }
 )
 
-type StatCardProps = {
+export type StatCardProps = {
     title: string;
     value: number | string;
     color?: string;

@@ -39,7 +39,7 @@ const offeringCardStyle = cva(["flex flex-col gap-1 py-4 md:py-8 px-4 hoppla-ani
     },
 });
 
-type OfferingCardProps = {
+export type OfferingCardProps = {
     title: string;
     description: string;
     icon: ElementType;

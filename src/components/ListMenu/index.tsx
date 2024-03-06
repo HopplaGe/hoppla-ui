@@ -1,30 +1,30 @@
-import { cn } from "@/utils";
-import { motion } from "framer-motion";
-import { forwardRef, ReactNode, RefAttributes } from "react";
-import { cva } from "class-variance-authority";
-import { LucideIcon } from "lucide-react";
+import {cn} from "@/utils";
+import {motion} from "framer-motion";
+import {forwardRef, ReactNode, RefAttributes} from "react";
+import {cva} from "class-variance-authority";
+import {LucideIcon} from "lucide-react";
 
 const listMenuVariants = {
     hover: {
         scale: 1.03,
-        transition: { duration: 0.02 },
+        transition: {duration: 0.02},
     },
     tap: {
         scale: .95,
     },
-    hidden: { opacity: 0, x: "100vw" },
+    hidden: {opacity: 0, x: "100vw"},
     visible: {
         opacity: 1,
         x: 0,
-        transition: { duration: 0.2 },
+        transition: {duration: 0.2},
     },
     drag: {
         x: [0, 10, 0, -10, 0],
-        transition: { duration: 0.5 },
+        transition: {duration: 0.5},
     },
     spin: {
         rotate: 360,
-        transition: { duration: 2, loop: Infinity },
+        transition: {duration: 2, loop: Infinity},
     },
 };
 
@@ -62,12 +62,10 @@ const listMenuStyle = cva(["text-gray-700"], {
     //     className: "uppercase",
     //   },
     // ],
-    defaultVariants: {
-
-    },
+    defaultVariants: {},
 });
 
-type listMenuProps = {
+export type listMenuProps = {
     color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "white" | "black";
     variant?: "dark" | "light";
     rounded?: "sm" | "lg" | "xl" | "2xl" | "3xl" | "none";
@@ -84,7 +82,7 @@ type listMenuProps = {
     }[];
 } & typeof listMenuStyle;
 
-export const ListboxWrapper = ({ children }: { children: ReactNode }) => (
+export const ListboxWrapper = ({children}: { children: ReactNode }) => (
     <div
         className="hidden lg:block w-full h-min  px-1 py-2 rounded-small fira-go">
         {children}
@@ -94,7 +92,7 @@ export const ListboxWrapper = ({ children }: { children: ReactNode }) => (
 const ListMenu = forwardRef<
     HTMLUListElement,
     listMenuProps & RefAttributes<HTMLUListElement>
->(({variant,color, classNames, rounded, ...props }, ref) => {
+>(({variant, color, classNames, rounded, ...props}, ref) => {
 
     return (
         <ListboxWrapper>
@@ -104,57 +102,57 @@ const ListMenu = forwardRef<
                 {...props}
                 {...classNames}
                 className={cn(
-                    listMenuStyle({ rounded, variant}),
+                    listMenuStyle({rounded, variant}),
                     "flex flex-col gap-1 w-full h-min p-2 fira-go min-w-64 fira-go",
                     classNames?.base
                 )}
             >
                 {props.data?.map((item, index) => (
-                        <a href={item.href as string} key={index}>
-                            { item.category !== (props.data?.[index - 1]?.category as string) && (
-                                    <motion.h5 className={"text-xs mb-1 font-semibold"}>
-                                        {item.category as string}
-                                    </motion.h5>
+                    <a href={item.href as string} key={index}>
+                        {item.category !== (props.data?.[index - 1]?.category as string) && (
+                            <motion.h5 className={"text-xs mb-1 font-semibold"}>
+                                {item.category as string}
+                            </motion.h5>
+                        )}
+
+                        <motion.li
+                            className={cn(
+                                "flex justify-start items-center gap-2 w-full h-12 fira-go px-2 py-2",
+                                "cursor-pointer transition-all",
+                                listMenuStyle({rounded}),
+                                `${variant === "dark" ? "hover:bg-gray-700" : "hover:bg-gray-200"}`,
+                                classNames?.item
                             )}
+                            variants={listMenuVariants}
+                            whileHover="hover"
+                            whileTap="tap"
+                        >
+                            {item.icon && <item.icon size={24}
+                                                     className={cn(
+                                                         listMenuStyle({color}),
+                                                         "bg-transparent",
+                                                     )}
+                            />}
+                            <div className={
+                                cn(
+                                    listMenuStyle({color}),
+                                    "flex flex-col text-sm bg-transparent",
+                                )
+                            }>
+                                {item.name as string}
+                                <p className={
+                                    cn(
+                                        listMenuStyle({variant}),
+                                        "text-xs bg-transparent",
+                                    )
 
-                                    <motion.li
-                                        className={cn(
-                                            "flex justify-start items-center gap-2 w-full h-12 fira-go px-2 py-2",
-                                            "cursor-pointer transition-all",
-                                            listMenuStyle({rounded}),
-                                            `${variant === "dark" ? "hover:bg-gray-700" : "hover:bg-gray-200"}`,
-                                            classNames?.item
-                                        )}
-                                        variants={listMenuVariants}
-                                        whileHover="hover"
-                                        whileTap="tap"
-                                    >
-                                        {item.icon && <item.icon size={24}
-                                        className={cn(
-                                            listMenuStyle({color}),
-                                            "bg-transparent",
-                                        )}
-                                            />}
-                                        <div className={
-                                            cn(
-                                                listMenuStyle({color}),
-                                                "flex flex-col text-sm bg-transparent",
-                                            )
-                                        }>
-                                            {item.name as string}
-                                            <p className={
-                                                cn(
-                                                    listMenuStyle({variant}),
-                                                    "text-xs bg-transparent",
-                                                )
-
-                                            }>
-                                                {item.description as string}
-                                            </p>
-                                        </div>
-                                    </motion.li>
-                        </a>
-                    ))}
+                                }>
+                                    {item.description as string}
+                                </p>
+                            </div>
+                        </motion.li>
+                    </a>
+                ))}
             </motion.ul>
         </ListboxWrapper>
     )

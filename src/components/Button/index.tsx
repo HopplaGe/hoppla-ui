@@ -1,30 +1,30 @@
-import { cn } from "@/utils";
-import { motion } from "framer-motion";
-import { forwardRef, Ref, RefAttributes } from "react";
-import { cva } from "class-variance-authority";
+import {cn} from "@/utils";
+import {motion} from "framer-motion";
+import {forwardRef, Ref, RefAttributes} from "react";
+import {cva} from "class-variance-authority";
 
 const buttonVariants = {
     hover: {
         scale: 1.1,
-    // rotateZ: 5,
-        transition: { duration: 0.2 },
+        // rotateZ: 5,
+        transition: {duration: 0.2},
     },
     tap: {
         scale: 0.95,
     },
-    hidden: { opacity: 0, x: "100vw" },
+    hidden: {opacity: 0, x: "100vw"},
     visible: {
         opacity: 1,
         x: 0,
-        transition: { duration: 0.2 },
+        transition: {duration: 0.2},
     },
     drag: {
         x: [0, 10, 0, -10, 0],
-        transition: { duration: 0.5 },
+        transition: {duration: 0.5},
     },
     spin: {
         rotate: 360,
-        transition: { duration: 2, loop: Infinity },
+        transition: {duration: 2, loop: Infinity},
     },
 };
 
@@ -105,7 +105,7 @@ const buttonStyle = cva(
     }
 );
 
-type ButtonProps = {
+export type ButtonProps = {
     label: string;
     onClick?: () => void;
     startContent?: React.ReactNode;
@@ -113,26 +113,26 @@ type ButtonProps = {
     className?: string;
     glow?: boolean;
     color?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "default";
+        | "primary"
+        | "secondary"
+        | "success"
+        | "danger"
+        | "warning"
+        | "info"
+        | "light"
+        | "dark"
+        | "default";
     size?:
-    | "xs"
-    | "sm"
-    | "md"
-    | "lg"
-    | "xl"
-    | "2xl"
-    | "3xl"
-    | "4xl"
-    | "5xl"
-    | "6xl";
+        | "xs"
+        | "sm"
+        | "md"
+        | "lg"
+        | "xl"
+        | "2xl"
+        | "3xl"
+        | "4xl"
+        | "5xl"
+        | "6xl";
     type?: "outline" | "solid" | "ghost" | "link";
     href?: string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
@@ -142,8 +142,8 @@ type ButtonProps = {
 const Button = forwardRef<
     HTMLButtonElement,
     ButtonProps & RefAttributes<HTMLButtonElement>
-    >(({ color, size, type, rounded, className, animation, href, ...props }, ref) => {
-        return (
+>(({color, size, type, rounded, className, animation, href, ...props}, ref) => {
+    return (
         <>
             {
                 href ? (
@@ -154,7 +154,7 @@ const Button = forwardRef<
                             whileTap: "tap",
                         })}
                         {...props}
-                        className={cn(buttonStyle({ color, size, type, rounded, className }))}
+                        className={cn(buttonStyle({color, size, type, rounded, className}))}
                         href={href}
                         ref={ref as Ref<HTMLAnchorElement>}
                     >
@@ -163,20 +163,20 @@ const Button = forwardRef<
                         {props.endContent && <span>{props.endContent}</span>}
                     </motion.a>
                 ) : (
-                        <motion.button
-                            variants={buttonVariants}
-                            {...(animation && {
-                                whileHover: "hover",
-                                whileTap: "tap",
-                            })}
-                            {...props}
-                            className={cn(buttonStyle({ color, size, type, rounded, className }))}
-                            ref={ref}
-                        >
-                            {props.startContent && <span>{props.startContent}</span>}
-                            {props.label}
-                            {props.endContent && <span>{props.endContent}</span>}
-                        </motion.button>
+                    <motion.button
+                        variants={buttonVariants}
+                        {...(animation && {
+                            whileHover: "hover",
+                            whileTap: "tap",
+                        })}
+                        {...props}
+                        className={cn(buttonStyle({color, size, type, rounded, className}))}
+                        ref={ref}
+                    >
+                        {props.startContent && <span>{props.startContent}</span>}
+                        {props.label}
+                        {props.endContent && <span>{props.endContent}</span>}
+                    </motion.button>
                 )
             }
         </>

@@ -60,7 +60,7 @@ const sectionStyle = cva([""], {
     },
 });
 
-type InfoSectionProps = {
+export type InfoSectionProps = {
     img: string;
     title: string;
     description: string;

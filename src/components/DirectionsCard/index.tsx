@@ -53,7 +53,7 @@ const directionsCardStyle = cva(["font-semibold", "bg-cover", "border-0"], {
     }
 });
 
-type DirectionsCardProps = {
+export type DirectionsCardProps = {
     from: string;
     to: string;
     startLatLng: { lat: number; lng: number };
@@ -91,28 +91,28 @@ const DirectionsCard = forwardRef<
     HTMLDivElement,
     DirectionsCardProps & RefAttributes<HTMLImageElement>
 >(({
-                                        from,
-                                        to,
-                                        startLatLng,
-                                        endLatLng,
-                                        startTime,
-                                        duration,
-                                        fromDistance,
-                                        arrivalTime,
-                                        toDistance,
-                                        requested_seats,
-                                        price,
-    variant,
-                                        size,
-                                        color,
-                                        rounded,
-                                        shadow,
-                                        bordered,
-                                        showPriceSection,
-                                        className,
-                                        onClick,
-                                        classNames,
-                                    }, ref) => {
+       from,
+       to,
+       startLatLng,
+       endLatLng,
+       startTime,
+       duration,
+       fromDistance,
+       arrivalTime,
+       toDistance,
+       requested_seats,
+       price,
+       variant,
+       size,
+       color,
+       rounded,
+       shadow,
+       bordered,
+       showPriceSection,
+       className,
+       onClick,
+       classNames,
+   }, ref) => {
 
     const meterToKm = (meters: number) => {
         if (meters < 1000) {
@@ -134,14 +134,13 @@ const DirectionsCard = forwardRef<
     }
 
 
-
     return (
         <>
             <div
                 id="card"
                 className={cn(
                     "relative overflow-hidden min-w-96",
-                    directionsCardStyle({ rounded, bordered, shadow, variant }),
+                    directionsCardStyle({rounded, bordered, shadow, variant}),
                     className,
                     classNames?.card,
                 )}
@@ -162,7 +161,7 @@ const DirectionsCard = forwardRef<
                         <div className="flex justify-between">
                             <div className={
                                 cn(
-                                    directionsCardStyle({color,size}),
+                                    directionsCardStyle({color, size}),
                                     "flex flex-col pt-1 bg-transparent",
                                     classNames?.time,
                                 )
@@ -176,7 +175,7 @@ const DirectionsCard = forwardRef<
                                     {startTime}
                                 </time>
                                 <small className="text-gray-500 text-xs font-semibold">
-                                  {secondsToHours(duration)}
+                                    {secondsToHours(duration)}
                                 </small>
                             </div>
 
@@ -189,7 +188,7 @@ const DirectionsCard = forwardRef<
                                     <div
                                         className={
                                             cn(
-                                                directionsCardStyle({ color, rounded, variant }),
+                                                directionsCardStyle({color, rounded, variant}),
                                                 "box-border w-3 h-3 border-2",
                                                 variant === "dark" ? "bg-dark group-hover:bg-gray-700" : "bg-white group-hover:bg-gray-50",
                                             )
@@ -199,13 +198,13 @@ const DirectionsCard = forwardRef<
                                 </div>
                                 <div className={cn("w-1 h-full",
                                     directionsCardStyle({color}),
-                                    )}></div>
+                                )}></div>
                             </div>
 
                             <div className="relative flex-1 py-2 pr-4 flex flex-col gap-2">
                                 <div className={
                                     cn(
-                                        directionsCardStyle({ variant }),
+                                        directionsCardStyle({variant}),
                                         "flex flex-col gap-0 bg-transparent",
                                     )
                                 }>
@@ -228,7 +227,7 @@ const DirectionsCard = forwardRef<
                                             fromDistance > 5000 && "bg-danger",
                                         )}
                                     >
-                                        <PersonStanding size={16} />
+                                        <PersonStanding size={16}/>
                                     </div>
                                     <span
                                         className={cn(
@@ -250,7 +249,7 @@ const DirectionsCard = forwardRef<
                                     )
 
                                 }>
-                                    <ChevronRight />
+                                    <ChevronRight/>
                                 </div>
                             </div>
                         </div>
@@ -296,7 +295,7 @@ const DirectionsCard = forwardRef<
                                     <div
                                         className={
                                             cn(
-                                                directionsCardStyle({ color, rounded, variant }),
+                                                directionsCardStyle({color, rounded, variant}),
                                                 "box-border w-3 h-3 border-2",
                                                 variant === "dark" ? "bg-dark group-hover:bg-gray-700" : "bg-white group-hover:bg-gray-50",
                                             )
@@ -310,7 +309,7 @@ const DirectionsCard = forwardRef<
                             <div className="relative flex-1 py-2 pr-4 flex flex-col gap-2">
                                 <div className={
                                     cn(
-                                        directionsCardStyle({ variant }),
+                                        directionsCardStyle({variant}),
                                         "flex flex-col gap-0 bg-transparent",
                                     )
                                 }>
@@ -331,7 +330,7 @@ const DirectionsCard = forwardRef<
                                             toDistance > 5000 && "bg-danger",
                                         )}
                                     >
-                                        <PersonStanding size={16} />
+                                        <PersonStanding size={16}/>
                                     </div>
                                     <span
                                         className={cn(
@@ -351,7 +350,7 @@ const DirectionsCard = forwardRef<
                                     )
 
                                 }>
-                                    <ChevronRight />
+                                    <ChevronRight/>
                                 </div>
                             </div>
                         </div>
@@ -365,10 +364,10 @@ const DirectionsCard = forwardRef<
                     )
                 }>
                     <div className="flex flex-col gap-2 text-sm">
-                       ფასი {requested_seats
-                                ? requested_seats
-                                : 1
-                        } {" "}მგზავრისთვის
+                        ფასი {requested_seats
+                        ? requested_seats
+                        : 1
+                    } {" "}მგზავრისთვის
                     </div>
                     <div className="flex flex-col gap-2 font-bold text-sm">
                         {requested_seats

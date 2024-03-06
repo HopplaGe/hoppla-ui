@@ -1,7 +1,9 @@
 import {cn} from "@/utils";
 import {motion} from "framer-motion";
-import {forwardRef, RefAttributes} from "react";
+import {forwardRef, ReactNode, RefAttributes, RefObject, useRef, useState} from "react";
 import {cva} from "class-variance-authority";
+import {Button} from "@/components";
+import {X} from "lucide-react";
 
 const inputVariants = {
     hover: {
@@ -101,12 +103,12 @@ const inputStyle = cva(
     }
 );
 
-type InputProps = {
+export type InputProps = {
     label: string;
     placeholder?: string;
     onClick?: () => void;
-    startContent?: React.ReactNode;
-    endContent?: React.ReactNode;
+    startContent?: ReactNode;
+    endContent?: ReactNode;
     className?: string;
     color?:
         | "primary"
@@ -130,6 +132,17 @@ const Input = forwardRef<
     HTMLInputElement,
     InputProps & RefAttributes<HTMLInputElement>
 >(({color, size, rounded, className, animation, type, ...props}, ref) => {
+
+    const [enableClearButton, setEnableClearButton] = useState(false);
+    const inputRef = useRef(ref);
+
+    const onClearClick = () => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        inputRef.current.value = "";
+        setEnableClearButton(false);
+    };
+
     return (
         <motion.div
             className={cn(inputStyle({color, size, type, rounded}), className)}
@@ -147,18 +160,36 @@ const Input = forwardRef<
                     color === "white" && "text-black",
                 )
             }>{props.label}</motion.label>
-            <motion.input
-                {...props}
-                className={
-                    cn(
-                        "w-full bg-transparent focus:outline-none border-none px-2 pb-1 pt-0 font-normal",
-                        color === "light" && "text-gray-500",
-                        color === "white" && "text-black",
-                    )
+            <div className={"flex flex-row items-center"}>
+                <motion.input
+                    {...props}
+                    className={
+                        cn(
+                            "w-full bg-transparent focus:outline-none border-none px-2 pt-0 font-normal",
+                            color === "light" && "text-gray-500",
+                            color === "white" && "text-black",
+                        )
+                    }
+                    onChangeCapture={(e) => {
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-expect-error
+                        setEnableClearButton(e.target.value.length > 0);
+                    }}
+                    ref={inputRef as RefObject<HTMLInputElement>}
+                    placeholder={props.placeholder}
+                />
+                {
+                    enableClearButton && <Button
+                        onClick={onClearClick}
+                        type="ghost"
+                        label={""}
+                        className={"p-0 bg-transparent hover:bg-transparent text-gray-500"}
+                        startContent={
+                            <X size={16}/>
+                        }/>
                 }
-                ref={ref}
-                placeholder={props.placeholder}
-            />
+
+            </div>
         </motion.div>
     );
 });

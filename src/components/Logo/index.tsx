@@ -59,7 +59,7 @@ const logoStyle = cva([""], {
     },
 });
 
-type LogoProps = {
+export type LogoProps = {
     onClick?: () => void;
     className?: string;
     variant?: "light" | "dark";
