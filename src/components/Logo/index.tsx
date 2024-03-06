@@ -76,7 +76,7 @@ type LogoProps = {
     animation?: true | false;
 } & typeof logoStyle;
 
-const Avatar = forwardRef<
+const Logo = forwardRef<
     SVGSVGElement,
     LogoProps & RefAttributes<SVGSVGElement>
 >(({variant, color, size, className, animation, ...props}, ref) => {
@@ -237,4 +237,4 @@ const Avatar = forwardRef<
     );
 });
 
-export default Avatar;
+export default Logo;
