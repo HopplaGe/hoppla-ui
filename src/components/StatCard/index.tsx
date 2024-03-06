@@ -43,6 +43,7 @@ const statCardStyle = cva(
                 warning: "bg-warning/10 text-warning-dark",
                 info: "bg-info/10 text-info-dark",
                 white: "bg-white text-dark",
+                black: "bg-black text-white",
             },
             rounded: {
                 none: "rounded-none",
@@ -99,7 +100,12 @@ const StatCard = forwardRef<
                 </div>
             }
             <div className='col-start-3 row-start-1 row-end-4 grid place-items-center'>
-                <div className={cn('rounded-md p-1', statCardStyle({color}))}>
+                <div className={cn(
+                    'rounded-md p-1',
+                    statCardStyle({color, rounded}),
+                    color === "white" && "bg-black",
+                    "bg-opacity-5"
+                )}>
                     {icon && <Icon size={32} className={""}/>}
                 </div>
             </div>
