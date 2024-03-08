@@ -4,6 +4,12 @@
     url("https://hopplaassets.s3.amazonaws.com/fonts/firago/FiraGO-Regular.woff") format("woff");
 }
 
+.spin-button-none::-webkit-outer-spin-button,
+.spin-button-none::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
