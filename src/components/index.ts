@@ -7,3 +7,5 @@ export {default as Logo} from "./Logo";
 export {default as OfferingCard} from "./OfferingCard";
 export {default as InfoSection} from "./InfoSection";
 export {default as StatCard} from "./StatCard";
+export {default as NumberSelector} from "./NumberSelector";
+export {default as OTPField} from "./OTPField";
