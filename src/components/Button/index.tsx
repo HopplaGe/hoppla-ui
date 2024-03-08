@@ -137,6 +137,7 @@ export type ButtonProps = {
     href?: string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
     animation?: true | false;
+    disabled?: boolean;
 } & typeof buttonStyle;
 
 const Button = forwardRef<
@@ -172,6 +173,7 @@ const Button = forwardRef<
                         {...props}
                         className={cn(buttonStyle({color, size, type, rounded, className}))}
                         ref={ref}
+                        disabled={props.disabled}
                     >
                         {props.startContent && <span>{props.startContent}</span>}
                         {props.label}
