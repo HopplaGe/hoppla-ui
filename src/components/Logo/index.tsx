@@ -76,7 +76,7 @@ export type LogoProps = {
     animation?: true | false;
 } & typeof logoStyle;
 
-const Logo = forwardRef<
+export const Logo = forwardRef<
     SVGSVGElement,
     LogoProps & RefAttributes<SVGSVGElement>
 >(({variant, color, size, className, animation, ...props}, ref) => {
@@ -238,5 +238,3 @@ const Logo = forwardRef<
 });
 
 Logo.displayName = "Logo";
-
-export default Logo;

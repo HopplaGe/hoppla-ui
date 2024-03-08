@@ -1,6 +1,6 @@
 import {cn} from "@/utils";
 import {motion} from "framer-motion";
-import {forwardRef, Ref, RefAttributes} from "react";
+import {forwardRef, ReactNode, Ref, RefAttributes} from "react";
 import {cva} from "class-variance-authority";
 
 const buttonVariants = {
@@ -108,8 +108,8 @@ const buttonStyle = cva(
 export type ButtonProps = {
     label: string;
     onClick?: () => void;
-    startContent?: React.ReactNode;
-    endContent?: React.ReactNode;
+    startContent?: ReactNode;
+    endContent?: ReactNode;
     className?: string;
     glow?: boolean;
     color?:
@@ -140,7 +140,7 @@ export type ButtonProps = {
     disabled?: boolean;
 } & typeof buttonStyle;
 
-const Button = forwardRef<
+export const Button = forwardRef<
     HTMLButtonElement,
     ButtonProps & RefAttributes<HTMLButtonElement>
 >(({color, size, type, rounded, className, animation, href, ...props}, ref) => {
@@ -186,5 +186,3 @@ const Button = forwardRef<
 });
 
 Button.displayName = "Button";
-
-export default Button;

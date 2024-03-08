@@ -3,7 +3,7 @@ import {motion} from "framer-motion";
 import {forwardRef, ReactNode, RefAttributes, RefObject, useRef, useState} from "react";
 import {cva} from "class-variance-authority";
 import {X} from "lucide-react";
-import Button from "@/components/Button";
+import {Button} from "@/components";
 
 const inputVariants = {
     hover: {
@@ -128,7 +128,7 @@ export type InputProps = {
     animation?: true | false;
 } & typeof inputStyle;
 
-const Input = forwardRef<
+export const Input = forwardRef<
     HTMLInputElement,
     InputProps & RefAttributes<HTMLInputElement>
 >(({color, size, rounded, className, animation, type, ...props}, ref) => {
@@ -195,5 +195,3 @@ const Input = forwardRef<
 });
 
 Input.displayName = "Input";
-
-export default Input;

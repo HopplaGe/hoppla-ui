@@ -113,7 +113,7 @@ export type NumberSelectorProps = {
     animation?: true | false;
 } & VariantProps<typeof numberSelectorStyle>;
 
-const NumberSelector = forwardRef<
+export const NumberSelector = forwardRef<
     HTMLInputElement,
     NumberSelectorProps & RefAttributes<HTMLInputElement>
 >(({
@@ -208,5 +208,3 @@ const NumberSelector = forwardRef<
 });
 
 NumberSelector.displayName = "NumberSelector";
-
-export default NumberSelector;

@@ -100,7 +100,7 @@ export type AvatarProps = {
     bordered?: true | false;
 } & typeof avatarStyle;
 
-const Avatar = forwardRef<
+export const Avatar = forwardRef<
     HTMLImageElement,
     AvatarProps & RefAttributes<HTMLImageElement>
 >(({color, size, rounded, bordered, className, animation, ...props}, ref) => {
@@ -121,5 +121,3 @@ const Avatar = forwardRef<
 });
 
 Avatar.displayName = "Avatar";
-
-export default Avatar;

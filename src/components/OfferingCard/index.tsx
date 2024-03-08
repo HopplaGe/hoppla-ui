@@ -48,7 +48,7 @@ export type OfferingCardProps = {
     color: "primary" | "secondary" | "default" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "white";
 } & typeof offeringCardStyle;
 
-const OfferCard = forwardRef<
+export const OfferCard = forwardRef<
     HTMLLIElement,
     OfferingCardProps & RefAttributes<HTMLLIElement>
 >(({
@@ -90,5 +90,3 @@ const OfferCard = forwardRef<
 );
 
 OfferCard.displayName = "OfferCard";
-
-export default OfferCard;

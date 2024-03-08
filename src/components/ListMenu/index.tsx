@@ -89,7 +89,7 @@ export const ListboxWrapper = ({children}: { children: ReactNode }) => (
     </div>
 );
 
-const ListMenu = forwardRef<
+export const ListMenu = forwardRef<
     HTMLUListElement,
     listMenuProps & RefAttributes<HTMLUListElement>
 >(({variant, color, classNames, rounded, ...props}, ref) => {
@@ -160,5 +160,3 @@ const ListMenu = forwardRef<
 });
 
 ListMenu.displayName = "ListMenu";
-
-export default ListMenu;

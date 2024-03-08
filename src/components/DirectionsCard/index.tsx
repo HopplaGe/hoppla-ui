@@ -87,7 +87,7 @@ export type DirectionsCardProps = {
     }
 } & typeof directionsCardStyle;
 
-const DirectionsCard = forwardRef<
+export const DirectionsCard = forwardRef<
     HTMLDivElement,
     DirectionsCardProps & RefAttributes<HTMLImageElement>
 >(({
@@ -382,5 +382,3 @@ const DirectionsCard = forwardRef<
 });
 
 DirectionsCard.displayName = "DirectionsCard";
-
-export default DirectionsCard;

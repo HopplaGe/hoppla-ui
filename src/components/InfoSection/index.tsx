@@ -2,7 +2,7 @@ import {forwardRef, RefAttributes} from "react";
 import {motion} from "framer-motion";
 import {cn} from "@/utils";
 import {cva} from "class-variance-authority";
-import Button from "@/components/Button";
+import {Button} from "@/components";
 
 const infoSectionVariants = {
     hover: {
@@ -74,7 +74,7 @@ export type InfoSectionProps = {
     animation?: "hover" | "tap" | "hidden" | "visible" | "drag" | "spin";
 } & typeof sectionStyle;
 
-const InfoSection = forwardRef<
+export const InfoSection = forwardRef<
     HTMLDivElement,
     InfoSectionProps & RefAttributes<HTMLDivElement>
 >(({
@@ -141,5 +141,3 @@ const InfoSection = forwardRef<
 });
 
 InfoSection.displayName = "InfoSection";
-
-export default InfoSection;

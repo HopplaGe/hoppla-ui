@@ -75,7 +75,7 @@ export type StatCardProps = {
     status?: string;
 } & VariantProps<typeof statCardStyle>
 
-const StatCard = forwardRef<
+export const StatCard = forwardRef<
     HTMLDivElement,
     StatCardProps & RefAttributes<HTMLDivElement>
 >(({title, value, color, rounded, shadow, icon, percent, status}, ref) => {
@@ -114,5 +114,3 @@ const StatCard = forwardRef<
 })
 
 StatCard.displayName = "StatCard"
-
-export default StatCard

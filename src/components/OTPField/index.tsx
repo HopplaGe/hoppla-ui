@@ -77,7 +77,7 @@ export type OTPFieldProps = {
     inputType?: string;
 } & VariantProps<typeof otpStyle>;
 
-const OTPField = forwardRef<
+export const OTPField = forwardRef<
     HTMLInputElement,
     OTPFieldProps & RefAttributes<HTMLInputElement>
 >(({
@@ -183,5 +183,3 @@ const OTPField = forwardRef<
 });
 
 OTPField.displayName = "OTPField";
-
-export default OTPField;
