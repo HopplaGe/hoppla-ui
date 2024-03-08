@@ -148,8 +148,6 @@ const OTPField = forwardRef<
 
         // focus on the last input
         setOptInputIndex(otpCopy.length - 1);
-        // if (otpCopy.length < length) {
-        // }
     };
 
     return (
