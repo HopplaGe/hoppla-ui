@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import {data} from "@/config/listMenu.config.ts";
-import ListMenu from "@/components/ListMenu";
+import {ListMenu} from "@/components";
 
 
 const meta = {

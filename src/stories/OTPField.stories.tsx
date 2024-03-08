@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import OTPField from "@/components/OTPField";
+import {OTPField} from "@/components";
 
 const meta = {
     title: "Elements/OTPField",

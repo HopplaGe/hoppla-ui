@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import {Coins, Star} from "lucide-react";
-import OfferingCard from "@/components/OfferingCard";
+import {OfferCard} from "@/components";
 
 const meta = {
     title: "Elements/OfferingCard",
-    component: OfferingCard,
+    component: OfferCard,
     parameters: {
         layout: "centered",
     },
@@ -36,7 +36,7 @@ const meta = {
             },
         },
     },
-} satisfies Meta<typeof OfferingCard>;
+} satisfies Meta<typeof OfferCard>;
 
 export default meta;
 

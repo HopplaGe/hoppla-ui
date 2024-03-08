@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import NumberSelector from "@/components/NumberSelector";
+import {NumberSelector} from "@/components";
 
 const meta = {
     title: "Elements/NumberSelector",

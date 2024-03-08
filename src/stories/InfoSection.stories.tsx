@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import InfoSection from "@/components/InfoSection";
+import {InfoSection} from "@/components";
 
 const meta = {
     title: "Elements/InfoSection",
