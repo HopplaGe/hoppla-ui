@@ -1,0 +1,34 @@
+name: Build and Publish Storybook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Publish Storybook
+        uses: crazy-max/ghaction-github-pages@v2.2.0
+        with:
+          target_branch: gh-pages
+          build_dir: storybook-static
+          commit_message: Deploy Storybook to GitHub Pages
+          fqdn: storybook.hoopla.ge
+          custom_domain: storybook.hoopla.ge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
