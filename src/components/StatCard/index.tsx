@@ -113,4 +113,6 @@ const StatCard = forwardRef<
     )
 })
 
+StatCard.displayName = "StatCard"
+
 export default StatCard

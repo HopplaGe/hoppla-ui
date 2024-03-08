@@ -182,4 +182,6 @@ const OTPField = forwardRef<
     );
 });
 
+OTPField.displayName = "OTPField";
+
 export default OTPField;

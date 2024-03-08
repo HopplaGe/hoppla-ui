@@ -159,4 +159,6 @@ const ListMenu = forwardRef<
         ;
 });
 
+ListMenu.displayName = "ListMenu";
+
 export default ListMenu;

@@ -89,4 +89,6 @@ const OfferCard = forwardRef<
     }
 );
 
+OfferCard.displayName = "OfferCard";
+
 export default OfferCard;

@@ -140,4 +140,6 @@ const InfoSection = forwardRef<
     );
 });
 
+InfoSection.displayName = "InfoSection";
+
 export default InfoSection;

@@ -120,4 +120,6 @@ const Avatar = forwardRef<
     );
 });
 
+Avatar.displayName = "Avatar";
+
 export default Avatar;

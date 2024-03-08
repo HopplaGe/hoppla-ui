@@ -381,4 +381,6 @@ const DirectionsCard = forwardRef<
     );
 });
 
+DirectionsCard.displayName = "DirectionsCard";
+
 export default DirectionsCard;
