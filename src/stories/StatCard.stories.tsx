@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {StatCard} from "../components";
 import {BarChart2} from "lucide-react";
+import StatCard from "@/components/StatCard";
 
 const meta = {
     title: "Elements/StatCard",

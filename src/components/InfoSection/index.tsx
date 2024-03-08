@@ -2,7 +2,7 @@ import {forwardRef, RefAttributes} from "react";
 import {motion} from "framer-motion";
 import {cn} from "@/utils";
 import {cva} from "class-variance-authority";
-import {Button} from "@/components";
+import Button from "@/components/Button";
 
 const infoSectionVariants = {
     hover: {

@@ -2,8 +2,8 @@ import {cn} from "@/utils";
 import {motion} from "framer-motion";
 import {forwardRef, ReactNode, RefAttributes, RefObject, useRef, useState} from "react";
 import {cva} from "class-variance-authority";
-import {Button} from "@/components";
 import {X} from "lucide-react";
+import Button from "@/components/Button";
 
 const inputVariants = {
     hover: {

@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
-import {DirectionsCard} from "../components";
+import type {Meta, StoryObj} from "@storybook/react";
+import DirectionsCard from "@/components/DirectionsCard";
 
 const meta = {
     title: "Elements/DirectionsCard",
@@ -34,7 +33,7 @@ const meta = {
                 type: "select",
             },
         },
-        shadow:{
+        shadow: {
             options: ["none", "sm", "md", "lg", "xl", "2xl"],
             control: {
                 type: "select",
@@ -76,8 +75,8 @@ export const Default: Story = {
         startTime: "8:00",
         arrivalTime: "8:30",
         duration: 1800,
-        startLatLng: { lat: 44.2541, lng: 41.5246 },
-        endLatLng: { lat: 44.3588, lng: 41.5484 },
+        startLatLng: {lat: 44.2541, lng: 41.5246},
+        endLatLng: {lat: 44.3588, lng: 41.5484},
         fromDistance: 30000,
         toDistance: 500,
         price: 30,
@@ -111,8 +110,8 @@ export const WithPrice: Story = {
         startTime: "8:00",
         arrivalTime: "8:30",
         duration: 1800,
-        startLatLng: { lat: 44.2541, lng: 41.5246 },
-        endLatLng: { lat: 44.3588, lng: 41.5484 },
+        startLatLng: {lat: 44.2541, lng: 41.5246},
+        endLatLng: {lat: 44.3588, lng: 41.5484},
         fromDistance: 30000,
         toDistance: 500,
         price: 30,

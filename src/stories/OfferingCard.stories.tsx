@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
-
-import {OfferingCard} from "../components";
 import {Coins, Star} from "lucide-react";
+import OfferingCard from "@/components/OfferingCard";
 
 const meta = {
     title: "Elements/OfferingCard",
