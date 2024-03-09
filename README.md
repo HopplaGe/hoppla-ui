@@ -7,18 +7,23 @@
 ### Installation
 
 ```bash
-npm i @hoppla/hoppla-ui
+npm i @hoppla/ui
 ```
 
 ### Usage
 
 ```jsx
 import React from 'react';
-import {Button} from '@hoppla/hoppla-ui';
+import {Button} from '@hoppla/ui';
 
 const App = () => {
     return (
-        <Button>Click me</Button>
+        <Button
+            label="Click Me"
+            variant="solid"
+            color="primary"
+            animation
+        />
     );
 };
 

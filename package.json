@@ -1,6 +1,6 @@
 {
-  "name": "@hoppla/hoppla-ui",
-  "version": "0.0.3",
+  "name": "@hoppla/ui",
+  "version": "0.0.1",
   "type": "module",
   "files": [
     "dist"
@@ -11,16 +11,18 @@
   "exports": {
     ".": {
       "import": "./dist/hoppla-ui.js",
-      "require": "./dist/hoppla-ui-umd.cjs"
+      "require": "./dist/hoppla-ui-umd.cjs",
+      "types": "./dist/hoppla-ui.d.ts"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && npm run build-tailwind",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build-tailwind": "npx tailwindcss build ./src/index.css -o ./dist/globals.css --postcss --minify"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",

@@ -67,7 +67,7 @@ const buttonStyle = cva(
                 "5xl": ["text-5xl", "px-10", "py-9"],
                 "6xl": ["text-6xl", "px-11", "py-10"],
             },
-            type: {
+            variant: {
                 solid: ["text-white", "hover:bg-opacity-95", "bg-opacity-100"],
                 outline: [
                     "bg-transparent",
@@ -133,7 +133,7 @@ export type ButtonProps = {
         | "4xl"
         | "5xl"
         | "6xl";
-    type?: "outline" | "solid" | "ghost" | "link";
+    variant?: "outline" | "solid" | "ghost" | "link";
     href?: string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
     animation?: true | false;
@@ -143,7 +143,7 @@ export type ButtonProps = {
 export const Button = forwardRef<
     HTMLButtonElement,
     ButtonProps & RefAttributes<HTMLButtonElement>
->(({color, size, type, rounded, className, animation, href, ...props}, ref) => {
+>(({color, size, variant, rounded, className, animation, href, ...props}, ref) => {
     return (
         <>
             {
@@ -155,7 +155,7 @@ export const Button = forwardRef<
                             whileTap: "tap",
                         })}
                         {...props}
-                        className={cn(buttonStyle({color, size, type, rounded, className}))}
+                        className={cn(buttonStyle({color, size, variant, rounded, className}))}
                         href={href}
                         ref={ref as Ref<HTMLAnchorElement>}
                     >
@@ -171,7 +171,7 @@ export const Button = forwardRef<
                             whileTap: "tap",
                         })}
                         {...props}
-                        className={cn(buttonStyle({color, size, type, rounded, className}))}
+                        className={cn(buttonStyle({color, size, variant, rounded, className}))}
                         ref={ref}
                         disabled={props.disabled}
                     >
